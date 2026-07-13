@@ -21,6 +21,7 @@
     intro: document.getElementById("introScreen"),
     quiz: document.getElementById("quizScreen"),
     loading: document.getElementById("loadingScreen"),
+    unlock: document.getElementById("unlockScreen"),
     result: document.getElementById("resultScreen")
   };
 
@@ -31,6 +32,8 @@
     restartBtn: document.getElementById("restartBtn"),
     downloadBtn: document.getElementById("downloadBtn"),
     shareBtn: document.getElementById("shareBtn"),
+    unlockBookBtn: document.getElementById("unlockBookBtn"),
+    unlockHintBtn: document.getElementById("unlockHintBtn"),
 
     chapterLabel: document.getElementById("chapterLabel"),
     chapterTitle: document.getElementById("chapterTitle"),
@@ -214,9 +217,30 @@
       els.loadingFill.style.width = "100%";
 
       window.setTimeout(function () {
-        renderResult();
+        prepareUnlock();
       }, 300);
     }, 2200);
+  }
+
+
+  function prepareUnlock() {
+    console.info("Book Identity build 3.1: unlock screen");
+    var unlockStage = document.querySelector(".unlock-stage");
+    if (unlockStage) {
+      unlockStage.classList.remove("is-unlocking");
+    }
+    showScreen("unlock");
+  }
+
+  function unlockResult() {
+    var unlockStage = document.querySelector(".unlock-stage");
+    if (!unlockStage || unlockStage.classList.contains("is-unlocking")) return;
+
+    unlockStage.classList.add("is-unlocking");
+
+    window.setTimeout(function () {
+      renderResult();
+    }, 1750);
   }
 
   function renderResult() {
@@ -428,14 +452,14 @@
           { type: "image/png" }
         );
 
-        var fileShareData = {
+        var shareData = {
           title: "Book Identity",
           text: text,
           files: [file]
         };
 
-        if (navigator.canShare && navigator.canShare(fileShareData)) {
-          return navigator.share(fileShareData);
+        if (navigator.canShare && navigator.canShare(shareData)) {
+          return navigator.share(shareData);
         }
 
         if (navigator.share) {
@@ -473,6 +497,8 @@
     els.restartBtn.addEventListener("click", restart);
     els.downloadBtn.addEventListener("click", downloadCard);
     els.shareBtn.addEventListener("click", shareResult);
+    els.unlockBookBtn.addEventListener("click", unlockResult);
+    els.unlockHintBtn.addEventListener("click", unlockResult);
   }
 
   function init() {

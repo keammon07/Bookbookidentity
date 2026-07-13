@@ -239,12 +239,12 @@ button:focus-visible {
 
 .bookmark {
   position: absolute;
-  right: -8px;
+  right: -10px;
   top: 126px;
-  width: 26px;
-  height: 82px;
+  width: 25px;
+  height: 78px;
   z-index: 3;
-  background: linear-gradient(180deg, #963d3d, #7f2e2e);
+  background: linear-gradient(180deg, #963d3d, #7a2b2b);
   box-shadow: 0 9px 18px rgba(65, 24, 24, 0.18);
   clip-path: polygon(0 0, 100% 0, 100% 82%, 50% 100%, 0 82%);
   pointer-events: none;
@@ -268,7 +268,6 @@ button:focus-visible {
   margin: 4px 0 0;
   color: var(--muted);
   font-size: 0.82rem;
-  white-space: nowrap;
 }
 
 .progress-track,
@@ -303,10 +302,9 @@ button:focus-visible {
 }
 
 .question-card h3 {
-  max-width: 16ch;
-  margin: 18px 0 26px;
+  margin: 18px 0 24px;
   font-family: var(--serif);
-  font-size: clamp(1.95rem, 5.2vw, 3.2rem);
+  font-size: clamp(1.95rem, 5.4vw, 3.15rem);
   line-height: 1.12;
   letter-spacing: -0.018em;
   text-wrap: balance;
@@ -530,22 +528,146 @@ button:focus-visible {
 }
 
 
-/* Final polish */
-.question-card {
-  position: relative;
-  overflow: hidden;
+/* ===== Unlock reveal ===== */
+.unlock-screen {
+  text-align: center;
 }
 
-.question-card::after {
+.unlock-stage {
+  width: min(100%, 680px);
+  display: grid;
+  justify-items: center;
+}
+
+.unlock-stage h2 {
+  max-width: 15ch;
+  margin: 14px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(2.35rem, 8vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.unlock-lead {
+  max-width: 34rem;
+  margin: 20px auto 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.sealed-book {
+  width: min(72vw, 280px);
+  aspect-ratio: 0.72;
+  margin-top: 34px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  position: relative;
+  perspective: 1300px;
+  cursor: pointer;
+}
+
+.sealed-book__face {
+  position: absolute;
+  inset: 0;
+  border-radius: 7px 22px 22px 7px;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255,255,255,.09), transparent 30%),
+    linear-gradient(145deg, #3b3026, #17120e);
+  box-shadow:
+    18px 26px 55px rgba(45, 32, 20, .31),
+    inset 3px 0 0 rgba(255,255,255,.05),
+    inset 0 0 0 1px rgba(255,255,255,.035);
+  display: grid;
+  place-items: center;
+  transform-origin: left center;
+}
+
+.sealed-book__spine {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  border-radius: 7px 0 0 7px;
+  background: linear-gradient(90deg, #15100d, #4e3e31, #17120e);
+}
+
+.sealed-book__title {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: .88;
+  letter-spacing: .03em;
+}
+
+.sealed-book__locks {
+  position: absolute;
+  left: 50%;
+  bottom: 48px;
+  display: flex;
+  gap: 24px;
+  transform: translateX(-50%);
+}
+
+.unlock-lock {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #eadfc9, #cdbb9c);
+  border: 1px solid rgba(75, 55, 32, .28);
+  box-shadow:
+    0 8px 16px rgba(30, 20, 12, .28),
+    inset 0 1px 0 rgba(255,255,255,.65);
+}
+
+.unlock-lock i {
+  position: relative;
+  width: 7px;
+  height: 11px;
+  border-radius: 5px 5px 2px 2px;
+  background: #5a4733;
+}
+
+.unlock-lock i::before {
   content: "";
   position: absolute;
-  top: 22px;
-  right: 0;
-  bottom: 22px;
-  width: 1px;
-  background: linear-gradient(transparent, rgba(70, 50, 28, 0.13), transparent);
+  left: 1px;
+  top: -4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #5a4733;
 }
 
+.unlock-hint {
+  margin-top: 28px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.45);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.unlock-key {
+  color: var(--gold);
+  font-size: 1.35rem;
+}
+
+.unlock-stage.is-unlocking .unlock-hint {
+  opacity: .45;
+  pointer-events: none;
+}
+
+/* Answer pen stroke */
 .answer-btn {
   position: relative;
   isolation: isolate;
@@ -560,71 +682,64 @@ button:focus-visible {
   bottom: 10px;
   height: 7px;
   border-radius: 60% 40% 55% 45%;
-  background: rgba(var(--accent-rgb), 0.17);
+  background: rgba(var(--accent-rgb), .17);
   transform: scaleX(0) rotate(-0.4deg);
   transform-origin: left center;
-  transition: transform 0.28s ease;
+  transition: transform .28s ease;
 }
 
 .answer-btn.is-selected::after {
   transform: scaleX(1) rotate(-0.4deg);
 }
 
-.result-hero {
+/* Refined paper edge */
+.question-card {
   position: relative;
-  overflow: visible;
-  border: 1px solid rgba(255,255,255,.18);
+  overflow: hidden;
 }
 
-.result-locks {
-  position: absolute;
-  inset: auto 0 -17px 0;
-  display: flex;
-  justify-content: center;
-  gap: 38px;
-  pointer-events: none;
-}
-
-.result-lock {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #e9dcc5;
-  border: 1px solid rgba(64, 47, 29, 0.24);
-  box-shadow:
-    0 7px 15px rgba(48, 34, 20, 0.2),
-    inset 0 1px 0 rgba(255,255,255,.65);
-}
-
-.result-lock i {
-  position: relative;
-  width: 7px;
-  height: 11px;
-  border-radius: 5px 5px 2px 2px;
-  background: #5c4934;
-}
-
-.result-lock i::before {
+.question-card::after {
   content: "";
   position: absolute;
-  left: 1px;
-  top: -4px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #5c4934;
-}
-
-.result-section:first-of-type {
-  margin-top: 30px;
-}
-
-.category-chip {
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+  top: 24px;
+  right: 0;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(transparent, rgba(70,50,28,.13), transparent);
 }
 
 @supports not (text-wrap: balance) {
   .question-card h3 { max-width: 18ch; }
+}
+
+
+/* v3.1 unlock screen: intentionally distinct from result page */
+.unlock-screen {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(182,148,80,.18), transparent 34%),
+    linear-gradient(180deg, rgba(25,20,15,.98), rgba(47,38,29,.96));
+  color: #f8f0e3;
+}
+
+.unlock-screen .eyebrow {
+  color: #d1b46f;
+}
+
+.unlock-screen .unlock-lead {
+  color: rgba(248,240,227,.72);
+}
+
+.unlock-screen .unlock-hint {
+  background: #d1b46f;
+  border-color: #d1b46f;
+  color: #211a13;
+  box-shadow: 0 14px 32px rgba(0,0,0,.24);
+}
+
+.unlock-screen .unlock-key {
+  color: #211a13;
+}
+
+.unlock-screen .sealed-book {
+  filter: drop-shadow(0 32px 45px rgba(0,0,0,.35));
 }

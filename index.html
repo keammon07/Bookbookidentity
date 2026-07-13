@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animation.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/style.css?v=3.1.0">
+  <link rel="stylesheet" href="css/animation.css?v=3.1.0">
+  <link rel="stylesheet" href="css/responsive.css?v=3.1.0">
 </head>
 <body>
   <noscript>
@@ -46,7 +46,7 @@
             <span>เริ่มอ่าน</span>
             <span aria-hidden="true">→</span>
           </button>
-          <p class="meta">8 บท · ประมาณ 2 นาที</p>
+          <p class="meta">8 บท · ประมาณ 2 นาที · build 3.1</p>
         </div>
       </div>
     </section>
@@ -108,14 +108,35 @@
       </article>
     </section>
 
+
+    <section id="unlockScreen" class="screen unlock-screen" aria-labelledby="unlockTitle">
+      <div class="unlock-stage">
+        <p class="eyebrow">Final Chapter</p>
+        <h2 id="unlockTitle">ตัวตนของคุณถูกเก็บไว้ในหนังสือเล่มนี้</h2>
+        <p class="unlock-lead">หยุดตรงนี้ก่อน — คลิกที่หนังสือหรือปุ่มด้านล่าง เพื่อปลดล็อกผลลัพธ์ของคุณ</p>
+
+        <button id="unlockBookBtn" class="sealed-book" type="button" aria-label="แตะเพื่อปลดล็อกหนังสือ">
+          <span class="sealed-book__spine" aria-hidden="true"></span>
+          <span class="sealed-book__face" aria-hidden="true">
+            <span class="sealed-book__title">BOOK<br>IDENTITY</span>
+            <span class="sealed-book__locks">
+              <span class="unlock-lock"><i></i></span>
+              <span class="unlock-lock"><i></i></span>
+              <span class="unlock-lock"><i></i></span>
+            </span>
+          </span>
+        </button>
+
+        <button id="unlockHintBtn" class="unlock-hint" type="button">
+          <span class="unlock-key" aria-hidden="true">⌑</span>
+          <span>คลิกเพื่อปลดล็อกผลลัพธ์</span>
+        </button>
+      </div>
+    </section>
+
     <section id="resultScreen" class="screen screen-result" aria-labelledby="resultName">
       <div class="result-shell">
         <article id="resultHero" class="result-hero">
-          <div class="result-locks" aria-hidden="true">
-            <span class="result-lock"><i></i></span>
-            <span class="result-lock"><i></i></span>
-            <span class="result-lock"><i></i></span>
-          </div>
           <p class="eyebrow eyebrow-light">Book Identity</p>
           <div id="resultSymbol" class="result-symbol" aria-hidden="true">◎</div>
           <p class="result-label">คุณคือ</p>
@@ -160,7 +181,7 @@
 
   <canvas id="shareCanvas" width="1080" height="1920" hidden></canvas>
 
-  <script src="data/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="data/data.js?v=3.1.0"></script>
+  <script src="js/app.js?v=3.1.0"></script>
 </body>
 </html>
