@@ -1,4 +1,4 @@
-# Book Identity v1.0
+# Book Identity v1.1
 
 แบบทดสอบค้นหาตัวตนนักอ่าน สร้างด้วย HTML, CSS และ Vanilla JavaScript
 
@@ -30,3 +30,12 @@
 - คาแรกเตอร์: `data/characters.js`
 - หมวดหนังสือ: `data/categories.js`
 - สีและ UI: `css/style.css`
+
+
+## เพิ่มใน v1.1
+
+- ชื่อ Chapter ภาษาไทยครบ 8 บท
+- Page-turn transition ระหว่างคำถาม
+- ปุ่มคำตอบมีเส้นปากกาเมื่อเลือก
+- เพิ่มขอบกระดาษและรายละเอียดสันหนังสือ
+- ปรับ Result Card ให้คล้ายหน้าปกแข็งมากขึ้น
