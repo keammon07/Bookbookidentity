@@ -1,1 +1,19 @@
-@media(min-width:620px){.screen{padding-inline:34px}.paper-card{padding:38px}.share-actions{grid-template-columns:1fr 1fr}}@media(min-width:900px){.screen[data-screen="cover"]{display:none;grid-template-columns:.9fr 1.1fr;gap:70px;max-width:1180px;margin:0 auto}.screen[data-screen="cover"].screen--active{display:grid}.book-stage{width:235px;height:310px;margin:0 auto}.cover-copy{text-align:left}.cover-description{margin-left:0}.cover-meta{text-align:left}}@media(max-width:420px){.screen{padding-inline:14px}.paper-card{padding:22px 18px}.identity-card{padding:38px 18px}.answer-btn{min-height:60px;padding:13px 14px}}
+
+@media(min-width:640px){
+  .screen{padding-inline:30px}
+  .paper{padding:40px}
+  .result-actions{grid-template-columns:1fr 1fr}
+}
+@media(min-width:920px){
+  .screen[data-screen="cover"]{display:none;grid-template-columns:.9fr 1.1fr;gap:76px;max-width:1180px;margin:auto}
+  .screen[data-screen="cover"].screen--active{display:grid}
+  .book{width:240px;height:320px;margin:0 auto}
+  .cover-copy{text-align:left}
+  .lead{margin-left:0}
+}
+@media(max-width:420px){
+  .screen{padding-inline:14px}
+  .paper{padding:24px 18px}
+  .paper--question{min-height:540px}
+  .result-hero{padding:42px 18px}
+}

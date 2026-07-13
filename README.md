@@ -1,46 +1,58 @@
-# Book Identity v1.2
+# Book Identity v2.0 Alpha
 
-แบบทดสอบค้นหาตัวตนนักอ่าน สร้างด้วย HTML, CSS และ Vanilla JavaScript
+เวอร์ชันถัดไปของ Book Identity ที่ปรับประสบการณ์ให้เหมือนกำลังอ่านหนังสือจริงมากขึ้น
 
-## ฟีเจอร์
-- 8 คำถาม
-- Hidden weighted scoring (+2 / +1)
-- 5 Reading Identities
+## เพิ่มจาก v1.x
+
+- ปกหนังสือแบบใหม่
+- Chapter ภาษาไทยครบ 8 บท
+- Page number
+- Bookmark
+- Page-turn transition
+- ตัวเลือกแบบเส้นข้อความบนหน้ากระดาษ
+- Hidden weighted scoring
+- Result layout ใหม่
 - Bookshelf DNA
-- Loading animation
-- Responsive mobile-first
-- ดาวน์โหลดการ์ดผลลัพธ์ 1080 × 1920
-- Web Share API
-- รองรับ GitHub Pages
+- ดาวน์โหลดการ์ดผลลัพธ์ 1080×1920
+- รองรับ Web Share API
+- เอาปุ่มไป Naiin ออกแล้ว
+- พร้อมใช้กับ GitHub Pages
 
-## เปิดใช้งาน
-แตก ZIP แล้วดับเบิลคลิก `index.html`
+## วิธีใช้งาน
 
-## อัปขึ้น GitHub Pages
-1. สร้าง Repository ใหม่
-2. อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้
-3. ไปที่ Settings > Pages
-4. เลือก Deploy from a branch
-5. เลือก `main` และ `/root`
-6. กด Save
+1. แตกไฟล์ ZIP
+2. เปิด `index.html` เพื่อทดสอบ
+3. ถ้าจะอัป GitHub ให้เอาไฟล์ทั้งหมดในโฟลเดอร์นี้ไปแทนไฟล์เดิม
+4. ต้องให้ `index.html` อยู่ที่หน้าแรกของ Repository
 
-## แก้ไขข้อมูล
-- คำถาม: `data/questions.js`
-- คาแรกเตอร์: `data/characters.js`
-- หมวดหนังสือ: `data/categories.js`
-- สีและ UI: `css/style.css`
+## โครงสร้าง
 
+```text
+book-identity-v2.0-alpha/
+├── index.html
+├── css/
+│   ├── style.css
+│   ├── animation.css
+│   └── responsive.css
+├── js/
+│   ├── app.js
+│   ├── scoring.js
+│   ├── ui.js
+│   └── result.js
+├── data/
+│   ├── characters.js
+│   └── questions.js
+├── assets/
+│   ├── fonts/
+│   ├── icons/
+│   └── images/
+└── README.md
+```
 
-## เพิ่มใน v1.1
+## แก้ไขคำถาม
 
-- ชื่อ Chapter ภาษาไทยครบ 8 บท
-- Page-turn transition ระหว่างคำถาม
-- ปุ่มคำตอบมีเส้นปากกาเมื่อเลือก
-- เพิ่มขอบกระดาษและรายละเอียดสันหนังสือ
-- ปรับ Result Card ให้คล้ายหน้าปกแข็งมากขึ้น
+แก้ที่ `data/questions.js`
 
-## เปลี่ยนแปลงใน v1.2
+## แก้ไขตัวตนและหมวดหนังสือ
 
-- นำปุ่มและลิงก์ไปยัง Naiin ออก
-- คงหมวดหนังสือแนะนำไว้
-- เพิ่มข้อความปิดท้ายให้จบประสบการณ์แบบหนังสือมากขึ้น
+แก้ที่ `data/characters.js`
