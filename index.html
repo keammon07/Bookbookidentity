@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f3eb" />
+  <meta name="description" content="Book Identity — แบบทดสอบค้นหาตัวตนนักอ่านของคุณ" />
+  <title>Book Identity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animation.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <noscript><div class="noscript">เว็บไซต์นี้ต้องเปิดใช้งาน JavaScript</div></noscript>
+  <main id="app" class="app-shell" aria-live="polite">
+    <section class="screen screen--active" data-screen="cover">
+      <div class="book-stage" aria-hidden="true">
+        <div class="book-cover"><div class="book-cover__line"></div><div class="book-cover__mark">BI</div><div class="book-cover__line"></div></div>
+      </div>
+      <div class="cover-copy">
+        <p class="eyebrow">Every reader has a story.</p>
+        <h1 class="display-title">Book Identity</h1>
+        <p class="cover-subtitle">Discover Your Reading Identity</p>
+        <p class="cover-description">หนังสือที่คุณเลือกอ่าน อาจกำลังบอกตัวตนของคุณมากกว่าที่คิด</p>
+        <button id="start-btn" class="primary-btn" type="button"><span>เริ่มเปิดบทแรก</span><span class="btn-arrow">→</span></button>
+        <p class="cover-meta">8 บท · ใช้เวลาประมาณ 2 นาที</p>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="intro">
+      <article class="paper-card intro-card">
+        <span class="chapter-kicker">Prelude</span>
+        <h2>หนังสือทุกเล่มสะท้อนบางอย่างในตัวเรา</h2>
+        <p>เลือกคำตอบที่ใกล้กับตัวคุณที่สุด ไม่มีคำตอบถูกหรือผิด และไม่ต้องคิดนานเกินไป</p>
+        <button id="intro-btn" class="primary-btn" type="button"><span>เริ่มทำแบบทดสอบ</span><span class="btn-arrow">→</span></button>
+      </article>
+    </section>
+
+    <section class="screen" data-screen="quiz">
+      <div class="quiz-shell">
+        <div class="quiz-topbar">
+          <button id="back-btn" class="icon-btn" type="button" aria-label="ย้อนกลับ">←</button>
+          <div class="progress-meta"><span id="chapter-label">Chapter I</span><span id="progress-count">1 / 8</span></div>
+        </div>
+        <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+        <article id="question-card" class="paper-card question-card">
+          <p id="question-overline" class="question-overline"></p>
+          <h2 id="question-text"></h2>
+          <div id="answers" class="answers" role="group"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="loading">
+      <article class="paper-card loading-card">
+        <div class="book-loader"><span></span><span></span><span></span></div>
+        <h2 id="loading-message">Reading your story...</h2>
+        <div class="loading-track"><div id="loading-fill" class="loading-fill"></div></div>
+        <p>กำลังเรียบเรียงตัวตนนักอ่านของคุณ</p>
+      </article>
+    </section>
+
+    <section class="screen screen--result" data-screen="result">
+      <div class="result-wrap">
+        <article id="identity-card" class="identity-card">
+          <p class="result-brand">BOOK IDENTITY</p>
+          <div id="identity-symbol" class="identity-symbol">✦</div>
+          <p class="result-kicker">คุณคือ</p>
+          <h2 id="identity-name" class="identity-name"></h2>
+          <p id="identity-thai" class="identity-thai"></p>
+          <blockquote id="identity-quote" class="identity-quote"></blockquote>
+        </article>
+        <article class="paper-card result-section"><span class="section-number">Chapter I</span><h3>ตัวตนการอ่านของคุณ</h3><p id="identity-description"></p></article>
+        <article class="paper-card result-section"><span class="section-number">Chapter II</span><h3>Bookshelf DNA</h3><p class="section-intro">สัดส่วนแรงขับในการอ่านของคุณ</p><div id="dna-list" class="dna-list"></div><p id="secondary-identity" class="secondary-copy"></p></article>
+        <article class="paper-card result-section"><span class="section-number">Chapter III</span><h3>แนวหนังสือที่เหมาะกับคุณ</h3><div id="category-list" class="category-list"></div><a id="browse-books-btn" class="primary-btn primary-btn--link" href="https://www.naiin.com/books/" target="_blank" rel="noopener noreferrer"><span>ค้นหาหนังสือที่ใช่</span><span class="btn-arrow">↗</span></a></article>
+        <article class="paper-card result-section share-section"><span class="section-number">Final Chapter</span><h3>แชร์ตัวตนนักอ่านของคุณ</h3><p>เก็บผลลัพธ์ไว้ หรือส่งให้เพื่อนลองค้นหาตัวตนของตัวเอง</p><div class="share-actions"><button id="download-card-btn" class="secondary-btn" type="button">ดาวน์โหลดการ์ด</button><button id="share-btn" class="primary-btn" type="button"><span>แชร์ผลลัพธ์</span><span class="btn-arrow">↗</span></button></div><button id="restart-btn" class="text-btn" type="button">เริ่มอ่านใหม่อีกครั้ง</button></article>
+        <p class="ending-copy">ขอบคุณที่เปิดอีกหนึ่งบทของตัวเอง</p>
+      </div>
+    </section>
+  </main>
+  <canvas id="share-canvas" width="1080" height="1920" hidden></canvas>
+  <script src="data/characters.js"></script>
+  <script src="data/categories.js"></script>
+  <script src="data/scoring.js"></script>
+  <script src="data/questions.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dna.js"></script>
+  <script src="js/result.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
