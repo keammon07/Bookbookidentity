@@ -3,124 +3,151 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f7f1e6">
+  <meta name="theme-color" content="#f6f0e6">
   <meta name="description" content="Book Identity — ค้นหาตัวตนนักอ่านของคุณ">
-  <title>Book Identity v2.0 Alpha</title>
+  <title>Book Identity — Discover Your Reading Identity</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animation.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-  <main id="app" class="app-shell">
-    <section class="screen screen--active" data-screen="cover">
-      <div class="book book--cover" aria-hidden="true">
-        <div class="book__spine"></div>
-        <div class="book__cover-face">
-          <span class="cover-rule"></span>
-          <div class="cover-mark">BI</div>
-          <span class="cover-rule"></span>
-        </div>
-      </div>
+  <noscript>
+    <div class="noscript">เว็บไซต์นี้ต้องเปิด JavaScript ก่อนจึงจะใช้งานได้</div>
+  </noscript>
 
-      <div class="cover-copy">
-        <p class="eyebrow">Every reader has a story.</p>
-        <h1>Book Identity</h1>
-        <p class="subtitle">Discover Your Reading Identity</p>
-        <p class="lead">หนังสือบางเล่มเปลี่ยนชีวิต แต่ก่อนจะเจอหนังสือเล่มนั้น คุณอาจต้องเจอตัวเองก่อน</p>
-        <button id="startBtn" class="primary-btn" type="button">
-          <span>เริ่มอ่าน</span><span aria-hidden="true">→</span>
-        </button>
-        <p class="meta">8 บท · ใช้เวลาประมาณ 2 นาที</p>
+  <main id="app" class="app-shell">
+    <section id="coverScreen" class="screen is-active" aria-labelledby="coverTitle">
+      <div class="cover-layout">
+        <div class="book-cover-wrap" aria-hidden="true">
+          <div class="book-cover">
+            <div class="book-spine"></div>
+            <div class="book-face">
+              <div class="cover-line"></div>
+              <div class="cover-emblem">BI</div>
+              <div class="cover-line"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cover-copy">
+          <p class="eyebrow">Every reader has a story.</p>
+          <h1 id="coverTitle">Book Identity</h1>
+          <p class="subtitle">Discover Your Reading Identity</p>
+          <p class="lead">
+            หนังสือบางเล่มเปลี่ยนชีวิต แต่ก่อนจะเจอหนังสือเล่มนั้น
+            คุณอาจต้องเจอตัวเองก่อน
+          </p>
+          <button id="startBtn" class="primary-btn" type="button">
+            <span>เริ่มอ่าน</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <p class="meta">8 บท · ประมาณ 2 นาที</p>
+        </div>
       </div>
     </section>
 
-    <section class="screen" data-screen="intro">
-      <article class="paper">
-        <span class="eyebrow">Prelude</span>
-        <h2>เลือกคำตอบที่ใกล้กับตัวคุณที่สุด</h2>
-        <p>ไม่มีคำตอบถูกหรือผิด และไม่ต้องคิดนานเกินไป เพราะคำตอบแรกที่รู้สึกว่าใช่ มักใกล้กับตัวคุณที่สุด</p>
-        <button id="beginQuizBtn" class="primary-btn" type="button">
-          <span>เปิดบทแรก</span><span aria-hidden="true">→</span>
+    <section id="introScreen" class="screen" aria-labelledby="introTitle">
+      <article class="paper-card intro-card">
+        <p class="eyebrow">Prelude</p>
+        <h2 id="introTitle">หนังสือที่คุณเลือก อาจกำลังเล่าเรื่องของคุณ</h2>
+        <p>
+          เลือกคำตอบที่ใกล้กับตัวคุณที่สุด ไม่มีคำตอบถูกหรือผิด
+          และไม่ต้องใช้เวลาคิดนานเกินไป
+        </p>
+        <button id="beginBtn" class="primary-btn" type="button">
+          <span>เปิดบทแรก</span>
+          <span aria-hidden="true">→</span>
         </button>
       </article>
     </section>
 
-    <section class="screen screen--quiz" data-screen="quiz">
-      <div class="quiz-layout">
+    <section id="quizScreen" class="screen screen-quiz" aria-labelledby="questionText">
+      <div class="quiz-shell">
         <div class="bookmark" aria-hidden="true"></div>
 
-        <header class="chapter-head">
+        <header class="chapter-header">
           <div>
-            <p id="chapterRoman" class="eyebrow">Chapter I</p>
+            <p id="chapterLabel" class="eyebrow">Chapter I</p>
             <h2 id="chapterTitle">หนังสือหน้าแรก</h2>
           </div>
-          <p id="pageNumber" class="page-number">Page 01</p>
+          <p id="pageLabel" class="page-label">Page 01</p>
         </header>
 
-        <div class="chapter-progress" aria-hidden="true">
-          <div id="progressFill" class="chapter-progress__fill"></div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progressFill" class="progress-fill"></div>
         </div>
 
-        <article id="questionPage" class="paper paper--question">
+        <article id="questionCard" class="paper-card question-card">
           <p id="questionPrompt" class="question-prompt">Choose what feels true.</p>
           <h3 id="questionText"></h3>
-          <div id="answerList" class="answer-list"></div>
+          <div id="answerList" class="answer-list" role="group" aria-label="ตัวเลือกคำตอบ"></div>
         </article>
 
-        <div class="quiz-footer">
+        <footer class="quiz-footer">
           <button id="backBtn" class="text-btn" type="button">← ย้อนกลับ</button>
           <span id="progressText">บทที่ 1 จาก 8</span>
-        </div>
+        </footer>
       </div>
     </section>
 
-    <section class="screen" data-screen="loading">
-      <article class="paper loading-paper">
+    <section id="loadingScreen" class="screen" aria-labelledby="loadingText">
+      <article class="paper-card loading-card">
         <div class="page-loader" aria-hidden="true">
           <span></span><span></span><span></span>
         </div>
         <p class="eyebrow">Reading your story</p>
         <h2 id="loadingText">กำลังอ่านเรื่องราวของคุณ...</h2>
-        <div class="loading-track"><div id="loadingBar" class="loading-bar"></div></div>
+        <div class="loading-track" aria-hidden="true">
+          <div id="loadingFill" class="loading-fill"></div>
+        </div>
       </article>
     </section>
 
-    <section class="screen screen--result" data-screen="result">
+    <section id="resultScreen" class="screen screen-result" aria-labelledby="resultName">
       <div class="result-shell">
         <article id="resultHero" class="result-hero">
-          <p class="eyebrow eyebrow--light">Book Identity</p>
-          <div id="resultSymbol" class="result-symbol">◎</div>
+          <div class="result-locks" aria-hidden="true">
+            <span class="result-lock"><i></i></span>
+            <span class="result-lock"><i></i></span>
+            <span class="result-lock"><i></i></span>
+          </div>
+          <p class="eyebrow eyebrow-light">Book Identity</p>
+          <div id="resultSymbol" class="result-symbol" aria-hidden="true">◎</div>
           <p class="result-label">คุณคือ</p>
-          <h2 id="resultName">The Explorer</h2>
-          <p id="resultThai" class="result-thai">นักสำรวจโลก</p>
+          <h2 id="resultName"></h2>
+          <p id="resultThai" class="result-thai"></p>
           <blockquote id="resultQuote"></blockquote>
         </article>
 
-        <article class="paper result-section">
-          <span class="eyebrow">Chapter I</span>
+        <article class="paper-card result-section">
+          <p class="eyebrow">Chapter I</p>
           <h3>ตัวตนการอ่านของคุณ</h3>
           <p id="resultDescription"></p>
         </article>
 
-        <article class="paper result-section">
-          <span class="eyebrow">Chapter II</span>
+        <article class="paper-card result-section">
+          <p class="eyebrow">Chapter II</p>
           <h3>Bookshelf DNA</h3>
           <p class="section-note">แรงขับในการอ่านของคุณในแต่ละด้าน</p>
           <div id="dnaList" class="dna-list"></div>
           <p id="secondaryText" class="secondary-text"></p>
         </article>
 
-        <article class="paper result-section">
-          <span class="eyebrow">Chapter III</span>
+        <article class="paper-card result-section">
+          <p class="eyebrow">Chapter III</p>
           <h3>แนวหนังสือที่เหมาะกับคุณ</h3>
           <div id="categoryList" class="category-list"></div>
         </article>
 
-        <article class="paper result-section ending-section">
-          <p>หนังสือเล่มต่อไป อาจกำลังรอคุณอยู่บนชั้นหนังสือสักแห่ง</p>
+        <article class="paper-card result-section ending-section">
+          <p class="ending-quote">
+            หนังสือเล่มต่อไป อาจกำลังรอคุณอยู่บนชั้นหนังสือสักแห่ง
+          </p>
           <div class="result-actions">
             <button id="downloadBtn" class="secondary-btn" type="button">ดาวน์โหลดการ์ด</button>
             <button id="shareBtn" class="primary-btn" type="button">แชร์ผลลัพธ์</button>
@@ -133,11 +160,7 @@
 
   <canvas id="shareCanvas" width="1080" height="1920" hidden></canvas>
 
-  <script src="data/characters.js"></script>
-  <script src="data/questions.js"></script>
-  <script src="js/scoring.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/result.js"></script>
+  <script src="data/data.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,58 +1,45 @@
-# Book Identity v2.0 Alpha
+# Book Identity v2.0 Final
 
-เวอร์ชันถัดไปของ Book Identity ที่ปรับประสบการณ์ให้เหมือนกำลังอ่านหนังสือจริงมากขึ้น
+เวอร์ชันพร้อมอัป GitHub Pages
 
-## เพิ่มจาก v1.x
+## ปรับปรุงจาก Beta
 
-- ปกหนังสือแบบใหม่
-- Chapter ภาษาไทยครบ 8 บท
-- Page number
-- Bookmark
-- Page-turn transition
-- ตัวเลือกแบบเส้นข้อความบนหน้ากระดาษ
-- Hidden weighted scoring
-- Result layout ใหม่
-- Bookshelf DNA
-- ดาวน์โหลดการ์ดผลลัพธ์ 1080×1920
-- รองรับ Web Share API
-- เอาปุ่มไป Naiin ออกแล้ว
-- พร้อมใช้กับ GitHub Pages
+- ย้ายที่คั่นหนังสือสีแดง ไม่บัง Page Number
+- ลดและปรับขนาดคำถามให้อ่านง่ายบน Desktop และมือถือ
+- เพิ่มเส้นปากกาใต้คำตอบที่เลือก
+- เพิ่มกุญแจ 3 จุดเฉพาะการ์ดผลลัพธ์
+- ปรับ Result Card และระยะห่างให้เรียบร้อยขึ้น
+- แชร์ภาพผลลัพธ์โดยตรงบนอุปกรณ์ที่รองรับ
+- ดาวน์โหลดการ์ด PNG 1080 × 1920
+- คำถามครบ 8 ข้อ และ Hidden weighted scoring
+- ไม่มีปุ่มออกไปเว็บไซต์ภายนอก
+- รองรับ GitHub Pages
 
-## วิธีใช้งาน
+## วิธีทดสอบ
 
 1. แตกไฟล์ ZIP
-2. เปิด `index.html` เพื่อทดสอบ
-3. ถ้าจะอัป GitHub ให้เอาไฟล์ทั้งหมดในโฟลเดอร์นี้ไปแทนไฟล์เดิม
-4. ต้องให้ `index.html` อยู่ที่หน้าแรกของ Repository
+2. เปิด `index.html`
+3. กดเริ่มอ่านและเล่นให้ครบ 8 ข้อ
+4. ทดสอบดาวน์โหลดการ์ด
+5. เมื่อพร้อม ให้อัปไฟล์ด้านในทั้งหมดไปที่หน้า root ของ Repository
 
-## โครงสร้าง
+โครงสร้างบน GitHub ต้องเป็น:
 
 ```text
-book-identity-v2.0-alpha/
-├── index.html
-├── css/
-│   ├── style.css
-│   ├── animation.css
-│   └── responsive.css
-├── js/
-│   ├── app.js
-│   ├── scoring.js
-│   ├── ui.js
-│   └── result.js
-├── data/
-│   ├── characters.js
-│   └── questions.js
-├── assets/
-│   ├── fonts/
-│   ├── icons/
-│   └── images/
-└── README.md
+index.html
+css/
+data/
+js/
+assets/
+README.md
+.nojekyll
 ```
 
-## แก้ไขคำถาม
+อย่าอัปโฟลเดอร์ `book-identity-v2.0-final` ซ้อนเข้าไปอีกชั้น
 
-แก้ที่ `data/questions.js`
+## หลังอัปไฟล์
 
-## แก้ไขตัวตนและหมวดหนังสือ
+GitHub Pages อาจแสดงไฟล์เก่าจากแคช ให้กด:
 
-แก้ที่ `data/characters.js`
+- Windows: `Ctrl + F5`
+- มือถือ: ปิดแท็บแล้วเปิดใหม่
