@@ -1,0 +1,102 @@
+
+@media (min-width: 640px) {
+  .screen { padding-inline: 30px; }
+  .paper-card { padding: 40px; }
+  .result-actions { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 920px) {
+  .cover-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 76px;
+  }
+
+  .book-cover-wrap {
+    width: 240px;
+    height: 320px;
+  }
+
+  .cover-copy { text-align: left; }
+  .lead { margin-left: 0; }
+}
+
+@media (max-width: 420px) {
+  .screen { padding-inline: 14px; }
+  .paper-card { padding: 24px 18px; }
+  .question-card { min-height: 540px; }
+  .result-hero { padding: 42px 18px; }
+}
+
+
+@media (max-width: 760px) {
+  .bookmark {
+    right: 5px;
+    top: 116px;
+    width: 21px;
+    height: 66px;
+  }
+
+  .question-card h3 {
+    font-size: clamp(1.85rem, 8.6vw, 2.72rem);
+  }
+
+  .sealed-book {
+    width: min(66vw, 240px);
+  }
+
+  .sealed-book__locks {
+    bottom: 38px;
+    gap: 18px;
+  }
+
+  .unlock-lock {
+    width: 31px;
+    height: 31px;
+  }
+}
+
+@media (max-width: 420px) {
+  .bookmark {
+    right: 7px;
+    top: 112px;
+    width: 19px;
+    height: 60px;
+  }
+
+  .unlock-stage h2 {
+    max-width: 13ch;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .bookmark {
+    right: -10px;
+    top: 28px;
+    width: 20px;
+    height: 64px;
+  }
+
+  .question-card h3 {
+    max-width: 18ch;
+    font-size: clamp(1.85rem, 8.8vw, 2.75rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .bookmark {
+    right: -8px;
+    top: 24px;
+    width: 18px;
+    height: 58px;
+  }
+
+  .chapter-header {
+    padding-right: 0;
+  }
+
+  .question-card h3 {
+    line-height: 1.14;
+    letter-spacing: -0.012em;
+  }
+}
