@@ -13,7 +13,9 @@
     answers: [],
     scores: createEmptyScores(),
     result: null,
-    locked: false
+    locked: false,
+    readerName: "Dear Reader",
+    shuffledAnswers: []
   };
 
   var screens = {
@@ -34,6 +36,7 @@
     shareBtn: document.getElementById("shareBtn"),
     unlockBookBtn: document.getElementById("unlockBookBtn"),
     unlockHintBtn: document.getElementById("unlockHintBtn"),
+    readerName: document.getElementById("readerName"),
 
     chapterLabel: document.getElementById("chapterLabel"),
     chapterTitle: document.getElementById("chapterTitle"),
@@ -50,6 +53,7 @@
     loadingFill: document.getElementById("loadingFill"),
 
     resultHero: document.getElementById("resultHero"),
+    resultOwner: document.getElementById("resultOwner"),
     resultSymbol: document.getElementById("resultSymbol"),
     resultName: document.getElementById("resultName"),
     resultThai: document.getElementById("resultThai"),
@@ -93,8 +97,46 @@
     state.scores = createEmptyScores();
     state.result = null;
     state.locked = false;
+    state.shuffledAnswers = [];
   }
 
+
+
+  function shuffleArray(items) {
+    var shuffled = items.slice();
+
+    for (var i = shuffled.length - 1; i > 0; i -= 1) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
+
+    return shuffled;
+  }
+
+  function prepareShuffledAnswers() {
+    state.shuffledAnswers = QUESTIONS.map(function (question) {
+      return shuffleArray(
+        question.answers.map(function (answer, originalIndex) {
+          return {
+            answer: answer,
+            originalIndex: originalIndex
+          };
+        })
+      );
+    });
+  }
+
+  function getPrimaryScoreKey(answer) {
+    var keys = Object.keys(answer.score);
+
+    keys.sort(function (a, b) {
+      return answer.score[b] - answer.score[a];
+    });
+
+    return keys[0];
+  }
 
   function formatQuestionText(text) {
     var phrases = [
@@ -131,14 +173,18 @@
 
     els.answerList.innerHTML = "";
 
-    question.answers.forEach(function (answer, answerIndex) {
+    state.shuffledAnswers[state.index].forEach(function (item) {
       var button = document.createElement("button");
       button.type = "button";
       button.className = "answer-btn";
-      button.textContent = answer.text;
+      button.textContent = item.answer.text;
+
+      if (state.answers[state.index] === item.originalIndex) {
+        button.classList.add("is-selected");
+      }
 
       button.addEventListener("click", function () {
-        selectAnswer(answerIndex, button);
+        selectAnswer(item.originalIndex, button);
       });
 
       els.answerList.appendChild(button);
@@ -173,9 +219,8 @@
 
     state.answers.forEach(function (answerIndex, questionIndex) {
       var answer = QUESTIONS[questionIndex].answers[answerIndex];
-      Object.keys(answer.score).forEach(function (key) {
-        state.scores[key] += answer.score[key];
-      });
+      var primaryKey = getPrimaryScoreKey(answer);
+      state.scores[primaryKey] += 1;
     });
   }
 
@@ -189,19 +234,28 @@
   }
 
   function normalizeScores() {
-    var max = Math.max.apply(null, SCORE_KEYS.map(function (key) {
-      return state.scores[key];
-    }).concat([1]));
+    var total = SCORE_KEYS.reduce(function (sum, key) {
+      return sum + state.scores[key];
+    }, 0);
 
     var percentages = {};
+
     SCORE_KEYS.forEach(function (key) {
-      percentages[key] = Math.round((state.scores[key] / max) * 100);
+      percentages[key] = total > 0
+        ? Number(((state.scores[key] / total) * 100).toFixed(1))
+        : 0;
     });
+
     return percentages;
   }
 
   function startQuiz() {
+    var typedName = els.readerName.value.trim();
+
     resetQuiz();
+    state.readerName = typedName || "Dear Reader";
+    prepareShuffledAnswers();
+
     showScreen("quiz");
     renderQuestion();
   }
@@ -215,48 +269,55 @@
   function startLoading() {
     var messages = [
       {
-        title: "กำลังเรียบเรียงหนังสือของคุณ...",
-        subtext: "เรื่องราวกำลังถูกจัดวางลงบนหน้ากระดาษ"
+        title: "กำลังอ่านคำโปรย...",
+        subtext: "กำลังเริ่มต้นค้นหาเรื่องราวที่ใกล้กับคุณ"
       },
       {
-        title: "กำลังพลิกหน้าที่สำคัญ...",
-        subtext: "ทุกคำตอบกำลังเชื่อมโยงเป็นตัวตนเดียวกัน"
+        title: "กำลังเปิดสารบัญ...",
+        subtext: "คำตอบทั้งแปดบทกำลังถูกจัดเรียง"
       },
       {
-        title: "กำลังค้นหาบทที่เป็นคุณ...",
-        subtext: "อีกเพียงครู่เดียว หนังสือเล่มนี้จะพร้อมเปิดเผย"
+        title: "กำลังพลิกหน้าสำคัญ...",
+        subtext: "ทุกตัวเลือกกำลังกลายเป็น Bookshelf DNA"
+      },
+      {
+        title: "กำลังค้นหาเรื่องราวของคุณ...",
+        subtext: "ตัวตนนักอ่านที่เด่นที่สุดกำลังปรากฏ"
       },
       {
         title: "กำลังเขียนหน้าสุดท้าย...",
-        subtext: "Bookshelf DNA ของคุณกำลังเสร็จสมบูรณ์"
+        subtext: "หนังสือของคุณใกล้พร้อมเปิดแล้ว"
       }
     ];
 
     showScreen("loading");
 
     var index = 0;
-    var progress = 12;
+    var progress = 20;
 
     els.loadingText.textContent = messages[0].title;
     els.loadingSubtext.textContent = messages[0].subtext;
     els.loadingFill.style.width = progress + "%";
 
     var timer = window.setInterval(function () {
-      index = Math.min(index + 1, messages.length - 1);
-      progress = Math.min(progress + 24, 92);
+      index += 1;
+
+      if (index >= messages.length) {
+        window.clearInterval(timer);
+        els.loadingFill.style.width = "100%";
+
+        window.setTimeout(function () {
+          prepareUnlock();
+        }, 450);
+
+        return;
+      }
+
+      progress = Math.min((index + 1) * 20, 100);
       els.loadingText.textContent = messages[index].title;
       els.loadingSubtext.textContent = messages[index].subtext;
       els.loadingFill.style.width = progress + "%";
-    }, 540);
-
-    window.setTimeout(function () {
-      window.clearInterval(timer);
-      els.loadingFill.style.width = "100%";
-
-      window.setTimeout(function () {
-        prepareUnlock();
-      }, 300);
-    }, 2200);
+    }, 3000);
   }
 
 
@@ -293,25 +354,27 @@
       secondaryKey: secondaryKey,
       primary: primary,
       secondary: secondary,
-      percentages: percentages
+      percentages: percentages,
+      readerName: state.readerName
     };
 
     setAccent(primary);
 
     els.resultHero.style.setProperty("--identity-color", primary.color);
+    els.resultOwner.textContent = state.readerName;
     els.resultSymbol.textContent = primary.symbol;
     els.resultName.textContent = primary.name;
     els.resultThai.textContent = primary.thai;
     els.resultQuote.textContent = "“" + primary.quote + "”";
     els.resultDescription.textContent = primary.description;
     els.secondaryText.textContent =
-      "นอกจากความเป็น " + primary.thai +
-      " แล้ว คุณยังมีความเป็น " + secondary.thai +
-      " อยู่ในตัวด้วย";
+      "ตัวตนของคุณมีความเป็น " + primary.thai +
+      " เด่นที่สุด และยังผสมผสานความเป็น " + secondary.thai +
+      " อยู่ในเรื่องราวเดียวกัน";
 
     els.dnaList.innerHTML = "";
 
-    SCORE_KEYS.forEach(function (key) {
+    ranking.forEach(function (key) {
       var character = CHARACTERS[key];
       var row = document.createElement("div");
       row.className = "dna-row";
@@ -410,20 +473,28 @@
     ctx.textAlign = "center";
     ctx.fillStyle = "rgba(255,255,255,.78)";
     ctx.font = "700 30px Arial";
-    ctx.fillText("BOOK IDENTITY", 540, 150);
+    ctx.fillText("BOOK IDENTITY", 540, 145);
+
+    ctx.font = "500 24px Arial";
+    ctx.fillStyle = "rgba(255,255,255,.72)";
+    ctx.fillText("THIS BOOK BELONGS TO", 540, 205);
+
+    ctx.font = "600 42px Arial";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillText(state.result.readerName, 540, 255);
 
     ctx.fillStyle = "#FFFFFF";
-    ctx.font = "700 110px Georgia";
-    ctx.fillText(primary.symbol, 540, 330);
+    ctx.font = "700 104px Arial";
+    ctx.fillText(primary.symbol, 540, 390);
 
-    ctx.font = "700 88px Georgia";
-    ctx.fillText(primary.name, 540, 500);
+    ctx.font = "700 82px Arial";
+    ctx.fillText(primary.name, 540, 545);
 
-    ctx.font = "500 40px Arial";
-    ctx.fillText(primary.thai, 540, 565);
+    ctx.font = "500 38px Arial";
+    ctx.fillText(primary.thai, 540, 610);
 
-    ctx.font = "500 38px Georgia";
-    drawWrappedText(ctx, "“" + primary.quote + "”", 540, 680, 760, 52);
+    ctx.font = "500 34px Arial";
+    drawWrappedText(ctx, "“" + primary.quote + "”", 540, 715, 760, 48);
 
     ctx.textAlign = "left";
     ctx.fillStyle = "#2A2824";
@@ -471,7 +542,7 @@
     if (!state.result) return;
 
     var text =
-      "ฉันคือ " + state.result.primary.name +
+      state.result.readerName + " คือ " + state.result.primary.name +
       " — " + state.result.primary.thai;
 
     var dataUrl = createShareImage();

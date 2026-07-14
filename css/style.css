@@ -1425,56 +1425,79 @@ strong, b,
 }
 
 
-/* ===== v3.14 Mobile Naiin CTA fix ===== */
+/* ===== v4.0 Stable additions ===== */
+.owner-field {
+  width: min(100%, 430px);
+  margin: 24px auto 0;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.owner-field > span {
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.owner-field input {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 17px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: rgba(255,255,255,.72);
+  color: var(--ink);
+  font: 400 1rem var(--sans);
+  outline: none;
+  transition: border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+
+.owner-field input:focus {
+  border-color: var(--gold);
+  background: #fffdf8;
+  box-shadow: 0 0 0 4px rgba(182,148,80,.12);
+}
+
+.result-owner {
+  margin: 18px auto 22px;
+  display: grid;
+  gap: 4px;
+}
+
+.result-owner span {
+  color: rgba(255,255,255,.7);
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.result-owner strong {
+  color: #fff;
+  font-family: var(--sans) !important;
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  font-weight: 500;
+}
+
 .next-chapter-section::before {
-  content: none !important;
   display: none !important;
 }
 
-.next-chapter-section h3 {
-  width: 100%;
-  max-width: 22ch;
-  margin-right: 0;
-  padding-right: 0;
-  overflow-wrap: break-word;
+.next-chapter-section h3,
+.next-chapter-section p,
+.naiin-btn {
+  overflow-wrap: anywhere;
   word-break: normal;
 }
 
 .naiin-btn {
-  box-sizing: border-box;
   white-space: normal;
   text-align: center;
   line-height: 1.45;
 }
 
-.naiin-btn span:first-child {
-  min-width: 0;
-  overflow-wrap: break-word;
-  word-break: normal;
-}
-
-.naiin-btn span:last-child {
-  flex: 0 0 auto;
-  font-family: Arial, sans-serif !important;
-  font-size: 1rem;
-}
-
-@media (max-width: 640px) {
-  .next-chapter-section {
-    overflow: hidden;
-  }
-
-  .next-chapter-section h3 {
-    max-width: 100%;
-    font-size: clamp(1.75rem, 7.7vw, 2.2rem) !important;
-    line-height: 1.18;
-    letter-spacing: -0.008em;
-  }
-
-  .naiin-btn {
-    min-height: 58px;
-    padding: 12px 18px;
-    gap: 10px;
-    font-size: .94rem;
-  }
+.dna-head strong {
+  min-width: 54px;
+  text-align: right;
 }

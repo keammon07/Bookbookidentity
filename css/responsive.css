@@ -254,3 +254,31 @@
     overflow-wrap: anywhere;
   }
 }
+
+
+@media (max-width: 640px) {
+  .owner-field {
+    margin-top: 20px;
+  }
+
+  .owner-field input {
+    min-height: 52px;
+    font-size: 16px;
+  }
+
+  .result-owner {
+    margin-bottom: 18px;
+  }
+
+  .next-chapter-section h3 {
+    max-width: 100% !important;
+    font-size: clamp(1.7rem, 7.5vw, 2.2rem) !important;
+    line-height: 1.15;
+  }
+
+  .naiin-btn {
+    min-height: 58px;
+    padding: 12px 16px;
+    font-size: .9rem;
+  }
+}

@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=3.14.0">
-  <link rel="stylesheet" href="css/animation.css?v=3.14.0">
-  <link rel="stylesheet" href="css/responsive.css?v=3.14.0">
+  <link rel="stylesheet" href="css/style.css?v=4.0.0">
+  <link rel="stylesheet" href="css/animation.css?v=4.0.0">
+  <link rel="stylesheet" href="css/responsive.css?v=4.0.0">
 </head>
 <body>
   <noscript>
@@ -46,7 +46,7 @@
             <span>เริ่มอ่าน</span>
             <span aria-hidden="true">→</span>
           </button>
-          <p class="meta">8 บท · ประมาณ 2 นาที · build 3.14</p>
+          <p class="meta">8 บท · ประมาณ 2 นาที · build 4.0</p>
         </div>
       </div>
     </section>
@@ -59,6 +59,19 @@
           เลือกคำตอบที่ใกล้กับตัวคุณที่สุด ไม่มีคำตอบถูกหรือผิด
           และไม่ต้องใช้เวลาคิดนานเกินไป
         </p>
+
+        <label class="owner-field" for="readerName">
+          <span>หนังสือเล่มนี้เป็นของ...</span>
+          <input
+            id="readerName"
+            name="readerName"
+            type="text"
+            maxlength="24"
+            autocomplete="name"
+            placeholder="พิมพ์ชื่อของคุณ (ไม่บังคับ)"
+          >
+        </label>
+
         <button id="beginBtn" class="primary-btn" type="button">
           <span>เปิดบทแรก</span>
           <span aria-hidden="true">→</span>
@@ -108,8 +121,8 @@
           </div>
         </div>
         <p class="eyebrow">Composing Your Story</p>
-        <h2 id="loadingText">กำลังเรียบเรียงหนังสือของคุณ...</h2>
-        <p id="loadingSubtext" class="loading-subtext">เรื่องราวกำลังถูกจัดวางลงบนหน้ากระดาษ</p>
+        <h2 id="loadingText">กำลังอ่านคำโปรย...</h2>
+        <p id="loadingSubtext" class="loading-subtext">กำลังเริ่มต้นค้นหาเรื่องราวที่ใกล้กับคุณ</p>
         <div class="loading-track" aria-hidden="true">
           <div id="loadingFill" class="loading-fill"></div>
         </div>
@@ -147,6 +160,10 @@
       <div class="result-shell">
         <article id="resultHero" class="result-hero">
           <p class="eyebrow eyebrow-light">Book Identity</p>
+          <div class="result-owner">
+            <span>This Book Belongs To</span>
+            <strong id="resultOwner">Dear Reader</strong>
+          </div>
           <div id="resultSymbol" class="result-symbol" aria-hidden="true">◎</div>
           <p class="result-label">คุณคือ</p>
           <h2 id="resultName"></h2>
@@ -211,7 +228,7 @@
 
   <canvas id="shareCanvas" width="1080" height="1920" hidden></canvas>
 
-  <script src="data/data.js?v=3.14.0"></script>
-  <script src="js/app.js?v=3.14.0"></script>
+  <script src="data/data.js?v=4.0.0"></script>
+  <script src="js/app.js?v=4.0.0"></script>
 </body>
 </html>
