@@ -1097,55 +1097,66 @@ button,
 }
 
 
-/* ===== v3.7 Balanced responsive typography ===== */
-.cover-copy h1 {
-  font-size: clamp(3.2rem, 7vw, 5.2rem);
-  line-height: .9;
+/* ===== v3.8 Desktop smaller, mobile original ===== */
+@media (min-width: 641px) {
+  .cover-copy h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: .9;
+  }
+
+  .intro-card h2 {
+    max-width: 17ch;
+    font-size: clamp(2rem, 4.2vw, 3.15rem);
+    line-height: 1.08;
+  }
+
+  .chapter-header h2 {
+    font-size: clamp(1.4rem, 2vw, 1.7rem);
+    line-height: 1.16;
+  }
+
+  .question-card h3 {
+    max-width: 18ch;
+    font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+    line-height: 1.14;
+    letter-spacing: -0.015em;
+  }
+
+  .loading-book h2 {
+    max-width: 17ch;
+    font-size: clamp(2rem, 4.1vw, 3.05rem);
+    line-height: 1.08;
+  }
+
+  .unlock-stage h2 {
+    max-width: 17ch;
+    font-size: clamp(2rem, 4.3vw, 3.15rem);
+    line-height: 1.08;
+  }
+
+  .result-section h3 {
+    font-size: clamp(1.85rem, 3vw, 2.35rem);
+    line-height: 1.1;
+  }
+
+  .result-hero h2 {
+    font-size: clamp(3rem, 6vw, 4.8rem);
+    line-height: .92;
+  }
 }
 
-.intro-card h2 {
-  max-width: 16ch;
-  font-size: clamp(2.15rem, 4.6vw, 3.35rem);
-  line-height: 1.08;
-}
 
-.chapter-header h2 {
-  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
-  line-height: 1.16;
-}
-
+/* ===== v3.9 Wider question headline ===== */
 .question-card h3 {
-  max-width: 18ch;
-  font-size: clamp(2rem, 4.2vw, 2.85rem);
-  line-height: 1.14;
-  letter-spacing: -0.015em;
+  width: 100%;
+  max-width: 26ch;
+  margin-right: 0;
+  margin-left: 0;
+  text-wrap: pretty;
 }
 
-.loading-book h2 {
-  max-width: 17ch;
-  font-size: clamp(2.1rem, 4.6vw, 3.2rem);
-  line-height: 1.08;
-}
-
-.unlock-stage h2 {
-  max-width: 17ch;
-  font-size: clamp(2.1rem, 4.8vw, 3.35rem);
-  line-height: 1.08;
-}
-
-.result-section h3 {
-  font-size: clamp(1.9rem, 3.2vw, 2.45rem);
-  line-height: 1.1;
-}
-
-.result-hero h2 {
-  font-size: clamp(3.2rem, 7vw, 5rem);
-  line-height: .92;
-}
-
-.primary-btn,
-.secondary-btn {
-  min-height: 54px;
-  padding-inline: 22px;
-  font-size: 1rem;
+@media (min-width: 900px) {
+  .question-card h3 {
+    max-width: 24ch;
+  }
 }
