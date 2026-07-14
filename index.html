@@ -9,11 +9,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=3.3.0">
-  <link rel="stylesheet" href="css/animation.css?v=3.3.0">
-  <link rel="stylesheet" href="css/responsive.css?v=3.3.0">
+  <link rel="stylesheet" href="css/style.css?v=3.4.0">
+  <link rel="stylesheet" href="css/animation.css?v=3.4.0">
+  <link rel="stylesheet" href="css/responsive.css?v=3.4.0">
 </head>
 <body>
   <noscript>
@@ -46,7 +46,7 @@
             <span>เริ่มอ่าน</span>
             <span aria-hidden="true">→</span>
           </button>
-          <p class="meta">8 บท · ประมาณ 2 นาที · build 3.3</p>
+          <p class="meta">8 บท · ประมาณ 2 นาที · build 3.4</p>
         </div>
       </div>
     </section>
@@ -94,16 +94,20 @@
       </div>
     </section>
 
-    <section id="loadingScreen" class="screen" aria-labelledby="loadingText">
-      <article class="paper-card loading-card">
-        <div class="page-loader" aria-hidden="true">
-          <span></span><span></span><span></span>
+    <section id="loadingScreen" class="screen loading-screen" aria-labelledby="loadingText">
+      <article class="loading-book">
+        <div class="loading-book__pages" aria-hidden="true">
+          <span class="loading-page loading-page--left"></span>
+          <span class="loading-page loading-page--middle"></span>
+          <span class="loading-page loading-page--right"></span>
         </div>
-        <p class="eyebrow">Reading your story</p>
-        <h2 id="loadingText">กำลังอ่านเรื่องราวของคุณ...</h2>
+        <p class="eyebrow">Composing Your Story</p>
+        <h2 id="loadingText">กำลังเรียบเรียงหนังสือของคุณ...</h2>
+        <p id="loadingSubtext" class="loading-subtext">เรื่องราวกำลังถูกจัดวางลงบนหน้ากระดาษ</p>
         <div class="loading-track" aria-hidden="true">
           <div id="loadingFill" class="loading-fill"></div>
         </div>
+        <div class="loading-dots" aria-hidden="true"><span></span><span></span><span></span></div>
       </article>
     </section>
 
@@ -141,7 +145,7 @@
           <p class="result-label">คุณคือ</p>
           <h2 id="resultName"></h2>
           <p id="resultThai" class="result-thai"></p>
-          <blockquote id="resultQuote"></blockquote>
+          <blockquote id="resultQuote" class="result-quote-th"></blockquote>
         </article>
 
         <article class="paper-card result-section">
@@ -201,7 +205,7 @@
 
   <canvas id="shareCanvas" width="1080" height="1920" hidden></canvas>
 
-  <script src="data/data.js?v=3.3.0"></script>
-  <script src="js/app.js?v=3.3.0"></script>
+  <script src="data/data.js?v=3.4.0"></script>
+  <script src="js/app.js?v=3.4.0"></script>
 </body>
 </html>

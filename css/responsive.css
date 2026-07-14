@@ -115,3 +115,23 @@
     font-size: 4rem;
   }
 }
+
+
+@media (max-width: 640px) {
+  .loading-book {
+    min-height: 500px;
+    padding: 42px 22px 36px;
+  }
+
+  .loading-book h2 {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .question-card h3 {
+    font-size: clamp(2rem, 9vw, 2.9rem);
+  }
+
+  .result-section h3 {
+    font-size: clamp(2rem, 8.5vw, 2.75rem);
+  }
+}

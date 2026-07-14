@@ -46,6 +46,7 @@
     questionCard: document.getElementById("questionCard"),
 
     loadingText: document.getElementById("loadingText"),
+    loadingSubtext: document.getElementById("loadingSubtext"),
     loadingFill: document.getElementById("loadingFill"),
 
     resultHero: document.getElementById("resultHero"),
@@ -191,10 +192,22 @@
 
   function startLoading() {
     var messages = [
-      "กำลังอ่านเรื่องราวของคุณ...",
-      "กำลังพลิกหน้าสำคัญ...",
-      "กำลังค้นหาตัวตนนักอ่าน...",
-      "กำลังเรียบเรียง Bookshelf DNA..."
+      {
+        title: "กำลังเรียบเรียงหนังสือของคุณ...",
+        subtext: "เรื่องราวกำลังถูกจัดวางลงบนหน้ากระดาษ"
+      },
+      {
+        title: "กำลังพลิกหน้าที่สำคัญ...",
+        subtext: "ทุกคำตอบกำลังเชื่อมโยงเป็นตัวตนเดียวกัน"
+      },
+      {
+        title: "กำลังค้นหาบทที่เป็นคุณ...",
+        subtext: "อีกเพียงครู่เดียว หนังสือเล่มนี้จะพร้อมเปิดเผย"
+      },
+      {
+        title: "กำลังเขียนหน้าสุดท้าย...",
+        subtext: "Bookshelf DNA ของคุณกำลังเสร็จสมบูรณ์"
+      }
     ];
 
     showScreen("loading");
@@ -202,13 +215,15 @@
     var index = 0;
     var progress = 12;
 
-    els.loadingText.textContent = messages[0];
+    els.loadingText.textContent = messages[0].title;
+    els.loadingSubtext.textContent = messages[0].subtext;
     els.loadingFill.style.width = progress + "%";
 
     var timer = window.setInterval(function () {
       index = Math.min(index + 1, messages.length - 1);
       progress = Math.min(progress + 24, 92);
-      els.loadingText.textContent = messages[index];
+      els.loadingText.textContent = messages[index].title;
+      els.loadingSubtext.textContent = messages[index].subtext;
       els.loadingFill.style.width = progress + "%";
     }, 540);
 

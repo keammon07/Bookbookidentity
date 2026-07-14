@@ -10,7 +10,7 @@
   --accent: #b69450;
   --accent-rgb: 182, 148, 80;
   --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "IBM Plex Sans Thai", system-ui, sans-serif;
+  --sans: "Mitr", "IBM Plex Sans Thai", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -832,4 +832,199 @@ button:focus-visible {
   text-align: center;
   font-size: .78rem;
   color: var(--muted);
+}
+
+
+/* ===== v3.4 Cadson Demak / Mitr typography ===== */
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+}
+
+button,
+.answer-btn,
+.category-chip,
+.naiin-btn,
+.text-btn,
+.primary-btn,
+.secondary-btn {
+  font-family: var(--sans);
+}
+
+.cover-copy h1,
+.intro-card h2,
+.chapter-header h2,
+.question-card h3,
+.loading-book h2,
+.result-hero h2,
+.result-section h3,
+.unlock-stage h2 {
+  font-family: var(--serif);
+}
+
+.intro-card h2,
+.chapter-header h2,
+.question-card h3,
+.loading-book h2,
+.result-section h3,
+.unlock-stage h2 {
+  font-weight: 600;
+}
+
+.question-card h3 {
+  max-width: 17ch;
+  font-size: clamp(2.15rem, 5.5vw, 3.45rem);
+  line-height: 1.12;
+  letter-spacing: -0.022em;
+}
+
+.chapter-header h2 {
+  font-size: clamp(1.65rem, 3.2vw, 2.05rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.intro-card h2 {
+  max-width: 15ch;
+  margin-inline: auto;
+  font-size: clamp(2.45rem, 6.6vw, 4.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.result-section h3 {
+  font-size: clamp(2.2rem, 4.4vw, 3.05rem);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+}
+
+.result-section > p:not(.eyebrow),
+.intro-card > p:not(.eyebrow),
+.answer-btn,
+.unlock-lead,
+.external-note {
+  font-family: var(--sans);
+  font-weight: 300;
+}
+
+.result-thai {
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+.result-quote-th {
+  font-family: var(--sans) !important;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: .002em;
+}
+
+.eyebrow,
+.page-label,
+.question-prompt,
+.meta {
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+/* ===== New loading composition screen ===== */
+.loading-screen {
+  background:
+    radial-gradient(circle at 50% 12%, rgba(182,148,80,.13), transparent 32%),
+    linear-gradient(180deg, #f8f3eb 0%, #ede3d5 100%);
+}
+
+.loading-book {
+  width: min(100%, 690px);
+  min-height: 520px;
+  padding: 54px 34px 44px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.028), transparent 8%, transparent 92%, rgba(0,0,0,.025)),
+    rgba(255,253,248,.94);
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow: var(--shadow);
+}
+
+.loading-book__pages {
+  width: 138px;
+  height: 92px;
+  position: relative;
+  margin-bottom: 28px;
+  perspective: 900px;
+}
+
+.loading-page {
+  position: absolute;
+  bottom: 0;
+  width: 69px;
+  height: 86px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.045), transparent 12%),
+    #fffaf1;
+  border: 1px solid rgba(88,65,38,.12);
+  box-shadow: 0 10px 22px rgba(55,40,24,.10);
+}
+
+.loading-page--left {
+  left: 0;
+  border-radius: 8px 2px 2px 8px;
+  transform: rotateY(12deg);
+  transform-origin: right center;
+}
+
+.loading-page--right {
+  right: 0;
+  border-radius: 2px 8px 8px 2px;
+  transform: rotateY(-12deg);
+  transform-origin: left center;
+}
+
+.loading-page--middle {
+  left: 50%;
+  width: 64px;
+  transform: translateX(-50%) rotateY(-4deg);
+  transform-origin: left center;
+  z-index: 2;
+}
+
+.loading-book h2 {
+  max-width: 15ch;
+  margin: 16px 0 0;
+  font-size: clamp(2.45rem, 6.8vw, 4.35rem);
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+}
+
+.loading-subtext {
+  max-width: 32rem;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.loading-book .loading-track {
+  width: min(100%, 420px);
+  margin-top: 30px;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.loading-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .32;
 }
