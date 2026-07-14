@@ -67,3 +67,51 @@
     max-width: 13ch;
   }
 }
+
+
+@media (max-width: 760px) {
+  .bookmark {
+    right: -10px;
+    top: 28px;
+    width: 20px;
+    height: 64px;
+  }
+
+  .question-card h3 {
+    max-width: 18ch;
+    font-size: clamp(1.85rem, 8.8vw, 2.75rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .bookmark {
+    right: -8px;
+    top: 24px;
+    width: 18px;
+    height: 58px;
+  }
+
+  .chapter-header {
+    padding-right: 0;
+  }
+
+  .question-card h3 {
+    line-height: 1.14;
+    letter-spacing: -0.012em;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .naiin-btn {
+    min-height: 58px;
+    padding-inline: 16px;
+    font-size: .92rem;
+  }
+
+  .next-chapter-section::before {
+    right: 12px;
+    top: 14px;
+    font-size: 4rem;
+  }
+}

@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=3.1.0">
-  <link rel="stylesheet" href="css/animation.css?v=3.1.0">
-  <link rel="stylesheet" href="css/responsive.css?v=3.1.0">
+  <link rel="stylesheet" href="css/style.css?v=3.3.0">
+  <link rel="stylesheet" href="css/animation.css?v=3.3.0">
+  <link rel="stylesheet" href="css/responsive.css?v=3.3.0">
 </head>
 <body>
   <noscript>
@@ -46,7 +46,7 @@
             <span>เริ่มอ่าน</span>
             <span aria-hidden="true">→</span>
           </button>
-          <p class="meta">8 บท · ประมาณ 2 นาที · build 3.1</p>
+          <p class="meta">8 บท · ประมาณ 2 นาที · build 3.3</p>
         </div>
       </div>
     </section>
@@ -68,8 +68,6 @@
 
     <section id="quizScreen" class="screen screen-quiz" aria-labelledby="questionText">
       <div class="quiz-shell">
-        <div class="bookmark" aria-hidden="true"></div>
-
         <header class="chapter-header">
           <div>
             <p id="chapterLabel" class="eyebrow">Chapter I</p>
@@ -83,6 +81,7 @@
         </div>
 
         <article id="questionCard" class="paper-card question-card">
+          <div class="bookmark" aria-hidden="true"></div>
           <p id="questionPrompt" class="question-prompt">Choose what feels true.</p>
           <h3 id="questionText"></h3>
           <div id="answerList" class="answer-list" role="group" aria-label="ตัวเลือกคำตอบ"></div>
@@ -165,6 +164,27 @@
           <div id="categoryList" class="category-list"></div>
         </article>
 
+
+        <article class="paper-card result-section next-chapter-section">
+          <p class="eyebrow">Your Next Chapter</p>
+          <h3>เลือกหนังสือที่คล้ายกับตัวตนของฉัน</h3>
+          <p>
+            เรื่องราวของคุณอาจกำลังรออยู่ในหนังสือสักเล่ม
+            ลองเปิดชั้นหนังสือและค้นหาเล่มที่ใกล้กับตัวตนของคุณ
+          </p>
+          <a
+            class="naiin-btn"
+            href="https://www.naiin.com/books/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="เลือกหนังสือที่คล้ายกับตัวตนของฉันที่ Naiin"
+          >
+            <span>เลือกหนังสือที่คล้ายกับตัวตนของฉัน</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <p class="external-note">เปิดหน้าหนังสือบน Naiin ในแท็บใหม่</p>
+        </article>
+
         <article class="paper-card result-section ending-section">
           <p class="ending-quote">
             หนังสือเล่มต่อไป อาจกำลังรอคุณอยู่บนชั้นหนังสือสักแห่ง
@@ -181,7 +201,7 @@
 
   <canvas id="shareCanvas" width="1080" height="1920" hidden></canvas>
 
-  <script src="data/data.js?v=3.1.0"></script>
-  <script src="js/app.js?v=3.1.0"></script>
+  <script src="data/data.js?v=3.3.0"></script>
+  <script src="js/app.js?v=3.3.0"></script>
 </body>
 </html>

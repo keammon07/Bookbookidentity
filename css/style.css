@@ -743,3 +743,93 @@ button:focus-visible {
 .unlock-screen .sealed-book {
   filter: drop-shadow(0 32px 45px rgba(0,0,0,.35));
 }
+
+
+/* v3.2 alignment fixes */
+.result-shell {
+  width: min(100%, 760px);
+}
+
+.result-shell > .paper-card {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.result-hero,
+.result-shell > .paper-card {
+  box-sizing: border-box;
+}
+
+.question-card {
+  overflow: visible;
+}
+
+.question-card::after {
+  pointer-events: none;
+}
+
+.chapter-header,
+.progress-track,
+.question-card,
+.quiz-footer {
+  width: 100%;
+}
+
+.quiz-shell {
+  overflow: visible;
+}
+
+
+/* v3.3 — Naiin next chapter */
+.next-chapter-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.next-chapter-section::before {
+  content: "↗";
+  position: absolute;
+  right: 22px;
+  top: 18px;
+  color: rgba(var(--accent-rgb), .18);
+  font-family: var(--serif);
+  font-size: 5rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.next-chapter-section > p:not(.eyebrow) {
+  max-width: 42rem;
+}
+
+.naiin-btn {
+  width: 100%;
+  min-height: 60px;
+  margin-top: 22px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-weight: 700;
+  box-shadow: 0 14px 30px rgba(42,40,36,.18);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.naiin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(42,40,36,.22);
+}
+
+.external-note {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+}
