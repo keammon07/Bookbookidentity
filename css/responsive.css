@@ -222,3 +222,35 @@
     transform: scale(.92);
   }
 }
+
+
+/* v3.13 mobile typography safety */
+@media (max-width: 640px) {
+  .paper-card {
+    overflow: visible;
+  }
+
+  .question-card h3,
+  .intro-card h2,
+  .loading-book h2,
+  .unlock-stage h2,
+  .result-section h3 {
+    max-width: 100%;
+  }
+
+  .question-card h3 {
+    font-size: clamp(1.95rem, 8.8vw, 2.7rem);
+    line-height: 1.16;
+  }
+
+  .intro-card h2 {
+    font-size: clamp(2rem, 8.6vw, 2.75rem);
+    line-height: 1.12;
+  }
+
+  .result-hero h2 {
+    font-size: clamp(2.8rem, 12vw, 4.2rem);
+    line-height: .95;
+    overflow-wrap: anywhere;
+  }
+}

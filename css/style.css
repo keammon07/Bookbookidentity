@@ -1336,3 +1336,90 @@ button,
   border-radius: 999px;
   background: #1f1b17;
 }
+
+
+/* ===== v3.12 Thai line-break control ===== */
+.keep-together {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+
+/* ===== v3.13 All headings/bold use Mitr ===== */
+h1, h2, h3, h4, h5, h6,
+strong, b,
+.eyebrow,
+.chapter-header h2,
+.question-card h3,
+.loading-book h2,
+.unlock-stage h2,
+.result-hero h2,
+.result-section h3,
+.cover-copy h1,
+.intro-card h2,
+.primary-btn,
+.secondary-btn,
+.naiin-btn,
+.text-btn,
+.answer-btn,
+.category-chip,
+.result-thai,
+.result-label,
+.page-label,
+.question-prompt,
+.meta {
+  font-family: "Mitr", system-ui, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+strong, b,
+.primary-btn,
+.secondary-btn,
+.naiin-btn,
+.eyebrow {
+  font-weight: 600;
+}
+
+.question-card h3,
+.intro-card h2,
+.loading-book h2,
+.unlock-stage h2,
+.result-section h3 {
+  letter-spacing: -0.01em;
+}
+
+/* English identity title now also uses Mitr */
+.result-hero h2,
+.cover-copy h1 {
+  letter-spacing: -0.015em;
+}
+
+/* Desktop: keep selected Thai phrases together */
+@media (min-width: 641px) {
+  .keep-together {
+    white-space: nowrap;
+    display: inline-block;
+  }
+}
+
+/* Mobile: prevent overflow / clipped text */
+@media (max-width: 640px) {
+  .keep-together {
+    white-space: normal !important;
+    display: inline !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .question-card {
+    overflow: visible;
+  }
+
+  .question-card h3 {
+    width: 100%;
+    max-width: none;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+  }
+}

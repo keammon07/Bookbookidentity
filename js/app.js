@@ -95,6 +95,28 @@
     state.locked = false;
   }
 
+
+  function formatQuestionText(text) {
+    var phrases = [
+      "คุณจะเลือกโลกแบบไหน?",
+      "คุณมักทำอะไรต่อ?",
+      "ใกล้กับตัวคุณที่สุด?"
+    ];
+
+    var output = text;
+
+    phrases.forEach(function (phrase) {
+      if (output.indexOf(phrase) !== -1) {
+        output = output.replace(
+          phrase,
+          '<span class="keep-together">' + phrase + '</span>'
+        );
+      }
+    });
+
+    return output;
+  }
+
   function renderQuestion() {
     var question = QUESTIONS[state.index];
 
@@ -104,7 +126,7 @@
     els.progressFill.style.width = (((state.index + 1) / QUESTIONS.length) * 100) + "%";
     els.progressText.textContent = "บทที่ " + (state.index + 1) + " จาก " + QUESTIONS.length;
     els.questionPrompt.textContent = question.prompt;
-    els.questionText.textContent = question.question;
+    els.questionText.innerHTML = formatQuestionText(question.question);
     els.backBtn.disabled = state.index === 0;
 
     els.answerList.innerHTML = "";
