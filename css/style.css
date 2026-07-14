@@ -1423,3 +1423,58 @@ strong, b,
     hyphens: none;
   }
 }
+
+
+/* ===== v3.14 Mobile Naiin CTA fix ===== */
+.next-chapter-section::before {
+  content: none !important;
+  display: none !important;
+}
+
+.next-chapter-section h3 {
+  width: 100%;
+  max-width: 22ch;
+  margin-right: 0;
+  padding-right: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.naiin-btn {
+  box-sizing: border-box;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.45;
+}
+
+.naiin-btn span:first-child {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.naiin-btn span:last-child {
+  flex: 0 0 auto;
+  font-family: Arial, sans-serif !important;
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .next-chapter-section {
+    overflow: hidden;
+  }
+
+  .next-chapter-section h3 {
+    max-width: 100%;
+    font-size: clamp(1.75rem, 7.7vw, 2.2rem) !important;
+    line-height: 1.18;
+    letter-spacing: -0.008em;
+  }
+
+  .naiin-btn {
+    min-height: 58px;
+    padding: 12px 18px;
+    gap: 10px;
+    font-size: .94rem;
+  }
+}
