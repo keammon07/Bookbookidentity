@@ -1,23 +1,19 @@
-# Book Identity v3.5 — Smaller Headings
+# Book Identity v3.7 — Balanced Type
 
-ปรับขนาดหัวข้อให้เล็กลงและอ่านสบายขึ้น
+แก้จาก v3.6 ที่ใช้ `font-size: 60%` แล้วทำให้มือถือเล็กเกินไป
 
-## ปรับแล้ว
+## รอบนี้
 
-- หน้าแรกเล็กลง
-- Prelude เล็กลง
-- ชื่อ Chapter เล็กลง
-- คำถามใหญ่เล็กลง
-- Loading title เล็กลง
-- Unlock title เล็กลง
-- Result Chapter เล็กลง
-- THE EXPLORER / ชื่อ Identity ลดลงเล็กน้อย
-- เพิ่มพื้นที่หายใจรอบหัวข้อ
+- Desktop เล็กลงจากเดิม แต่ไม่เล็กเกิน
+- Mobile ใช้ขนาดเฉพาะ ไม่ถูกย่อเหลือ 60%
+- ใช้ `clamp()` และ media query
+- Intro / Question / Loading / Unlock / Result ปรับแยกกัน
+- ปุ่มกลับมาขนาดอ่านง่ายบนมือถือ
 
 ## วิธีเช็ก
 
 หน้าแรกต้องเห็น:
 
-`build 3.5`
+`build 3.7`
 
 หลังอัป GitHub Pages ให้กด `Ctrl + F5`

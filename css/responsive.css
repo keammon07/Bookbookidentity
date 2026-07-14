@@ -166,3 +166,62 @@
     font-size: clamp(2.8rem, 12vw, 4.5rem);
   }
 }
+
+
+@media (max-width: 640px) {
+  .cover-copy h1 {
+    font-size: clamp(3rem, 14vw, 4.2rem);
+  }
+
+  .intro-card h2 {
+    max-width: 15ch;
+    font-size: clamp(2.15rem, 9.2vw, 2.85rem);
+  }
+
+  .chapter-header h2 {
+    font-size: 1.42rem;
+  }
+
+  .question-card h3 {
+    max-width: 18ch;
+    font-size: clamp(2.05rem, 9.4vw, 2.75rem);
+  }
+
+  .loading-book h2 {
+    max-width: 16ch;
+    font-size: clamp(2.1rem, 9vw, 2.8rem);
+  }
+
+  .unlock-stage h2 {
+    max-width: 16ch;
+    font-size: clamp(2.1rem, 9vw, 2.85rem);
+  }
+
+  .result-section h3 {
+    font-size: clamp(1.9rem, 8vw, 2.35rem);
+  }
+
+  .result-hero h2 {
+    font-size: clamp(3rem, 13vw, 4.35rem);
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    min-height: 54px;
+    padding-inline: 20px;
+    font-size: .98rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .intro-card h2,
+  .question-card h3,
+  .loading-book h2,
+  .unlock-stage h2 {
+    font-size: 2.05rem;
+  }
+
+  .result-section h3 {
+    font-size: 1.9rem;
+  }
+}

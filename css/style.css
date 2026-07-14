@@ -1096,16 +1096,56 @@ button,
   margin-bottom: 22px;
 }
 
-/* v3.6 premium scale */
-.cover-copy h1,.intro-card h2,.question-card h3,.loading-book h2,.unlock-stage h2{
-font-size:60%!important;
-line-height:1.05!important;
-letter-spacing:-.02em;
-max-width:13ch;
-margin-left:auto;margin-right:auto;
+
+/* ===== v3.7 Balanced responsive typography ===== */
+.cover-copy h1 {
+  font-size: clamp(3.2rem, 7vw, 5.2rem);
+  line-height: .9;
 }
-.chapter-header h2{font-size:1.25rem!important;}
-.result-section h3{font-size:1.5rem!important;}
-.result-hero h2{font-size:85%!important;line-height:.92!important;}
-.intro-card p,.cover-copy p,.loading-book p{font-size:.95rem!important;}
-.primary-btn{padding:14px 28px!important;font-size:1rem!important;}
+
+.intro-card h2 {
+  max-width: 16ch;
+  font-size: clamp(2.15rem, 4.6vw, 3.35rem);
+  line-height: 1.08;
+}
+
+.chapter-header h2 {
+  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+  line-height: 1.16;
+}
+
+.question-card h3 {
+  max-width: 18ch;
+  font-size: clamp(2rem, 4.2vw, 2.85rem);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+}
+
+.loading-book h2 {
+  max-width: 17ch;
+  font-size: clamp(2.1rem, 4.6vw, 3.2rem);
+  line-height: 1.08;
+}
+
+.unlock-stage h2 {
+  max-width: 17ch;
+  font-size: clamp(2.1rem, 4.8vw, 3.35rem);
+  line-height: 1.08;
+}
+
+.result-section h3 {
+  font-size: clamp(1.9rem, 3.2vw, 2.45rem);
+  line-height: 1.1;
+}
+
+.result-hero h2 {
+  font-size: clamp(3.2rem, 7vw, 5rem);
+  line-height: .92;
+}
+
+.primary-btn,
+.secondary-btn {
+  min-height: 54px;
+  padding-inline: 22px;
+  font-size: 1rem;
+}
