@@ -1028,3 +1028,70 @@ button,
   background: var(--gold);
   opacity: .32;
 }
+
+
+/* ===== v3.5 Smaller, quieter headings ===== */
+.cover-copy h1 {
+  font-size: clamp(3rem, 10vw, 5.4rem);
+  line-height: .9;
+}
+
+.intro-card h2 {
+  max-width: 17ch;
+  font-size: clamp(2rem, 5.2vw, 3.55rem);
+  line-height: 1.08;
+}
+
+.chapter-header h2 {
+  font-size: clamp(1.45rem, 2.6vw, 1.82rem);
+  line-height: 1.16;
+}
+
+.question-card h3 {
+  max-width: 18ch;
+  font-size: clamp(1.8rem, 4.4vw, 2.8rem);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+}
+
+.loading-book h2 {
+  max-width: 17ch;
+  font-size: clamp(2rem, 5.1vw, 3.45rem);
+  line-height: 1.08;
+}
+
+.unlock-stage h2 {
+  max-width: 17ch;
+  font-size: clamp(2rem, 5.3vw, 3.65rem);
+  line-height: 1.07;
+}
+
+.result-section h3 {
+  font-size: clamp(1.85rem, 3.7vw, 2.55rem);
+  line-height: 1.1;
+}
+
+.result-hero h2 {
+  font-size: clamp(3rem, 10vw, 5.4rem);
+  line-height: .92;
+}
+
+.paper-card h2,
+.paper-card h3 {
+  font-weight: 600;
+}
+
+.intro-card,
+.question-card,
+.loading-book,
+.result-section {
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+.question-card h3,
+.intro-card h2,
+.loading-book h2,
+.result-section h3 {
+  margin-bottom: 22px;
+}
