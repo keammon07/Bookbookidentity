@@ -1095,3 +1095,17 @@ button,
 .result-section h3 {
   margin-bottom: 22px;
 }
+
+/* v3.6 premium scale */
+.cover-copy h1,.intro-card h2,.question-card h3,.loading-book h2,.unlock-stage h2{
+font-size:60%!important;
+line-height:1.05!important;
+letter-spacing:-.02em;
+max-width:13ch;
+margin-left:auto;margin-right:auto;
+}
+.chapter-header h2{font-size:1.25rem!important;}
+.result-section h3{font-size:1.5rem!important;}
+.result-hero h2{font-size:85%!important;line-height:.92!important;}
+.intro-card p,.cover-copy p,.loading-book p{font-size:.95rem!important;}
+.primary-btn{padding:14px 28px!important;font-size:1rem!important;}
