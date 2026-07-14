@@ -1160,3 +1160,179 @@ button,
     max-width: 24ch;
   }
 }
+
+
+/* ===== v3.10 Loading screen polish ===== */
+.loading-screen {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.loading-book {
+  width: min(100%, 620px);
+  min-height: auto;
+  padding: 42px 34px 36px;
+  border-radius: 24px;
+  gap: 0;
+}
+
+.loading-book__pages {
+  width: 176px;
+  height: 112px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 14px 20px rgba(55, 40, 24, .10));
+}
+
+.loading-page {
+  width: 88px;
+  height: 106px;
+}
+
+.loading-page--middle {
+  width: 80px;
+}
+
+.loading-book .eyebrow {
+  margin-top: 0;
+  font-size: .74rem;
+}
+
+.loading-book h2 {
+  max-width: 14ch;
+  margin: 14px auto 0;
+  font-size: clamp(2rem, 4.2vw, 2.95rem);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+}
+
+.loading-subtext {
+  max-width: 30rem;
+  margin-top: 14px;
+  font-size: .98rem;
+  line-height: 1.7;
+}
+
+.loading-book .loading-track {
+  width: min(100%, 390px);
+  margin-top: 24px;
+}
+
+.loading-dots {
+  margin-top: 16px;
+}
+
+.loading-dots span {
+  width: 6px;
+  height: 6px;
+}
+
+
+/* ===== v3.11 Pen writing loader ===== */
+.writing-scene {
+  width: 190px;
+  height: 132px;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.writing-paper {
+  position: absolute;
+  inset: 18px 14px 8px;
+  border-radius: 10px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.035), transparent 10%),
+    #fffaf1;
+  border: 1px solid rgba(88,65,38,.12);
+  box-shadow: 0 14px 28px rgba(55,40,24,.10);
+  overflow: hidden;
+}
+
+.writing-paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 26px;
+  width: 1px;
+  background: rgba(182,148,80,.18);
+}
+
+.writing-line {
+  position: absolute;
+  left: 42px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(42,40,36,.18);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.writing-line--1 {
+  top: 34px;
+  width: 92px;
+}
+
+.writing-line--2 {
+  top: 56px;
+  width: 110px;
+}
+
+.writing-line--3 {
+  top: 78px;
+  width: 74px;
+}
+
+.writing-pen {
+  position: absolute;
+  z-index: 3;
+  left: 54px;
+  top: 30px;
+  width: 92px;
+  height: 24px;
+  transform: rotate(-14deg);
+  transform-origin: 8px 50%;
+  filter: drop-shadow(0 7px 8px rgba(34,24,15,.18));
+}
+
+.writing-pen__body {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  width: 70px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2f2923, #8a6c3c 58%, #d3b570);
+}
+
+.writing-pen__body::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 2px;
+  width: 12px;
+  height: 8px;
+  border-radius: 0 6px 6px 0;
+  background: #2f2923;
+}
+
+.writing-pen__tip {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 12px solid #5b4934;
+}
+
+.writing-pen__tip::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: -1px;
+  width: 4px;
+  height: 2px;
+  border-radius: 999px;
+  background: #1f1b17;
+}

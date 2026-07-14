@@ -174,3 +174,51 @@
     max-width: none;
   }
 }
+
+
+@media (max-width: 640px) {
+  .loading-screen {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .loading-book {
+    width: 100%;
+    padding: 34px 22px 30px;
+    border-radius: 20px;
+  }
+
+  .loading-book__pages {
+    width: 142px;
+    height: 92px;
+    margin-bottom: 18px;
+  }
+
+  .loading-page {
+    width: 71px;
+    height: 86px;
+  }
+
+  .loading-page--middle {
+    width: 66px;
+  }
+
+  .loading-book h2 {
+    max-width: 15ch;
+    font-size: clamp(2rem, 8.6vw, 2.65rem);
+  }
+
+  .loading-subtext {
+    font-size: .94rem;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .writing-scene {
+    width: 164px;
+    height: 118px;
+    margin-bottom: 18px;
+    transform: scale(.92);
+  }
+}

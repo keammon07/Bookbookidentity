@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=3.9.0">
-  <link rel="stylesheet" href="css/animation.css?v=3.9.0">
-  <link rel="stylesheet" href="css/responsive.css?v=3.9.0">
+  <link rel="stylesheet" href="css/style.css?v=3.11.0">
+  <link rel="stylesheet" href="css/animation.css?v=3.11.0">
+  <link rel="stylesheet" href="css/responsive.css?v=3.11.0">
 </head>
 <body>
   <noscript>
@@ -46,7 +46,7 @@
             <span>เริ่มอ่าน</span>
             <span aria-hidden="true">→</span>
           </button>
-          <p class="meta">8 บท · ประมาณ 2 นาที · build 3.9</p>
+          <p class="meta">8 บท · ประมาณ 2 นาที · build 3.11</p>
         </div>
       </div>
     </section>
@@ -96,10 +96,16 @@
 
     <section id="loadingScreen" class="screen loading-screen" aria-labelledby="loadingText">
       <article class="loading-book">
-        <div class="loading-book__pages" aria-hidden="true">
-          <span class="loading-page loading-page--left"></span>
-          <span class="loading-page loading-page--middle"></span>
-          <span class="loading-page loading-page--right"></span>
+        <div class="writing-scene" aria-hidden="true">
+          <div class="writing-paper">
+            <span class="writing-line writing-line--1"></span>
+            <span class="writing-line writing-line--2"></span>
+            <span class="writing-line writing-line--3"></span>
+          </div>
+          <div class="writing-pen">
+            <span class="writing-pen__body"></span>
+            <span class="writing-pen__tip"></span>
+          </div>
         </div>
         <p class="eyebrow">Composing Your Story</p>
         <h2 id="loadingText">กำลังเรียบเรียงหนังสือของคุณ...</h2>
@@ -205,7 +211,7 @@
 
   <canvas id="shareCanvas" width="1080" height="1920" hidden></canvas>
 
-  <script src="data/data.js?v=3.9.0"></script>
-  <script src="js/app.js?v=3.9.0"></script>
+  <script src="data/data.js?v=3.11.0"></script>
+  <script src="js/app.js?v=3.11.0"></script>
 </body>
 </html>
